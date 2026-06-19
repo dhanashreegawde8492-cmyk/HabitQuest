@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: rgb(2, 12, 24); /* bg-slate-950 */
+    color: white; /* text-white */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Rajdhani", "Inter", system-ui, sans-serif;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(168,85,247,0.12), transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(34,211,238,0.10), transparent 45%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgba(15,23,42,0.6); /* bg-slate-900/60 */
+    backdrop-filter: blur(16px); /* backdrop-blur-xl */
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .card-neon {
+    /* Expanded styles to avoid @apply (some linters flag Unknown at rule @apply) */
+    background-color: rgba(15,23,42,0.6); /* bg-slate-900/60 */
+    backdrop-filter: blur(16px); /* backdrop-blur-xl */
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 10px 30px rgba(168,85,247,0.12); /* shadow-neon approximation */
+  }
+  .btn-neon {
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    background-color: rgb(147, 51, 234);
+    transition: all;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  }
+  .btn-neon:hover {
+    background-color: rgb(168, 85, 247);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.9);
+  }
+  .btn-neon:active {
+    transform: scale(0.95);
+  }
+  .chip {
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: rgba(168, 85, 247, 0.15);
+    color: rgb(196, 181, 253);
+    border: 1px solid rgba(168, 85, 247, 0.30);
+  }
+  .text-glow {
+    text-shadow: 0 0 12px rgba(168,85,247,0.7);
+  }
+  .gradient-bar {
+    background: linear-gradient(90deg, #a855f7, #ec4899, #22d3ee);
+    background-size: 200% 100%;
+    animation: shine 3s linear infinite;
+  }
+}
+@keyframes fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes slide-down { from { transform: translate(-50%, -100%); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+.animate-fade-in { animation: fade-in 0.3s ease-out; }
+.animate-slide-down { animation: slide-down 0.4s ease-out; }
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.4); border-radius: 8px; }
